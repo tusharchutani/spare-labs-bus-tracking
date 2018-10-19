@@ -3,9 +3,6 @@ import './App.css';
 import TransitMap from './components/transitMap';
 class App extends Component {
 
-
-   
-
   render() {
     return (
         <TransitMap/>

@@ -35,6 +35,7 @@ export default class BusDetails extends Component {
     }
 
     componentWillReceiveProps(){
+        //when new props are coming we know that the popup will have some new data
         this.setState({hidden:false});
     }
     

@@ -12,7 +12,6 @@ export default function transitInfo(state=defaultState, action){
                 updated:payload.updated,
                 buses: payload.buses
             }
-        //actions will go here
         default:
             return state;
     }

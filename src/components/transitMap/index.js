@@ -20,14 +20,7 @@ class TransitMap extends Component {
               height: window.innerHeight
             },
             popUpHidden:true,
-            busDetails:{
-                vehicleNo:0,
-                tripId:0,
-                routNumber:0,
-                direction:"",
-                pattern:"",
-                recordedTime: new Date()
-            }
+            busDetails:null
           }
           this.openPopUp = this.openPopUp.bind(this);
     }
@@ -46,9 +39,17 @@ class TransitMap extends Component {
         this.setState({popUpHidden:false, busDetails});
     }
 
-    componentWillMount(){
+    getBusData(){
+        this.setState({loading:true});
         this.props.setBusLocations();
         this.setState({loading:false});
+    }
+    componentWillMount(){
+        this.getBusData();
+        //update every 10 seconds
+        setInterval(()=>{
+                this.getBusData();
+        }, 100000);
     }
 
     render(){
@@ -61,9 +62,9 @@ class TransitMap extends Component {
         onViewportChange={(viewport) => this.setState({viewport})}
       >
       {this.state.loading && <div className="loadingContiner">
-          <img id="images" src={require('../../assets/loading.gif')} height={30} width={30} /> 
+          <img alt="Loading" id="images" src={require('../../assets/loading.gif')} height={30} width={30} /> 
       </div>}
-     {buses.map((bus)=>(<BusInfo openPopUp={this.openPopUp} {...bus}/>))}
+     {buses.map((bus,i)=>(<BusInfo key={i} openPopUp={this.openPopUp} {...bus}/>))}
       {!this.state.popUpHidden && <BusDetails {...this.state.busDetails}/>}
       </ReactMapGL>);
     }

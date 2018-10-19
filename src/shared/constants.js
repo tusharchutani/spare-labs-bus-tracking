@@ -1,0 +1,1 @@
+exports.TRANSLINK_API_KEY = 'waQUpJIG28jIwXPLxhvG';

@@ -1,0 +1,9 @@
+.loadingContiner{
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    z-index: 100;
+    font-weight: 900;
+    height: 300px;
+    width: 300px;
+}

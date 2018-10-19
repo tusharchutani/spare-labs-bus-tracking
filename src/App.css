@@ -7,6 +7,13 @@
   height: 40vmin;
 }
 
+.busMarker{
+  background-color: red;
+  height:10px;
+  width: 10px;
+  border-radius: 50%;
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;

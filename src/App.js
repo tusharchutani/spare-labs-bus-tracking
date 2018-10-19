@@ -25,7 +25,9 @@ class App extends Component {
 
    getTranslinkData(){
     var config = {
-      headers: {'Accept': 'application/json'}
+      headers: {
+        'Accept': 'application/json',
+        'Access-Control-Allow-Origin':'*'}
     };
     console.log("Calling JSON data from https://api.translink.ca/rttiapi/v1/buses?apikey=waQUpJIG28jIwXPLxhvG");
     axios.get('https://api.translink.ca/rttiapi/v1/buses?apikey=waQUpJIG28jIwXPLxhvG', config).then(function(response){

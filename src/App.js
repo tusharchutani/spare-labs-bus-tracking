@@ -25,16 +25,26 @@ class App extends Component {
 
    getTranslinkData(){
     var config = {
-      headers: {
+      header: {
+        'Access-Control-Allow-Origin': '*',
         'Accept': 'application/json',
-        'Access-Control-Allow-Origin':'*'}
+        'testHeader':'this is a test header'
+      }
     };
-    console.log("Calling JSON data from https://api.translink.ca/rttiapi/v1/buses?apikey=waQUpJIG28jIwXPLxhvG");
-    axios.get('https://api.translink.ca/rttiapi/v1/buses?apikey=waQUpJIG28jIwXPLxhvG', config).then(function(response){
+    const API_URL = 'https://api.translink.ca/rttiapi/v1/buses?apikey=waQUpJIG28jIwXPLxhvG';
+
+    
+
+    axios({method:'get', url:API_URL, header: {'Access-Control-Allow-Origin': '*'}} ).then(function(response){
       console.log(response);
       console.log("_________________________________");
       console.table(response); 
-  });
+    });
+    /*axios.get('https://api.translink.ca/rttiapi/v1/buses?apikey=waQUpJIG28jIwXPLxhvG',config).then(function(response){
+      console.log(response);
+      console.log("_________________________________");
+      console.table(response); 
+    });*/
 }
    
 
